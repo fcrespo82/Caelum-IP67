@@ -13,6 +13,10 @@
 		F4C92B601F794914009F2DE1 /* ContatosIP67.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B5E1F794914009F2DE1 /* ContatosIP67.xcdatamodeld */; };
 		F4C92B621F794914009F2DE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4C92B611F794914009F2DE1 /* Assets.xcassets */; };
 		F4C92B651F794914009F2DE1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C92B631F794914009F2DE1 /* LaunchScreen.storyboard */; };
+		F4C92B6D1F795976009F2DE1 /* Contato.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B6C1F795976009F2DE1 /* Contato.swift */; };
+		F4C92B731F797BF5009F2DE1 /* ContatoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B721F797BF5009F2DE1 /* ContatoRepository.swift */; };
+		F4C92B771F7982FD009F2DE1 /* ContatoObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B751F7982FD009F2DE1 /* ContatoObjC.m */; };
+		F4C92B791F798CC5009F2DE1 /* ListaContatosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,12 @@
 		F4C92B611F794914009F2DE1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4C92B641F794914009F2DE1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F4C92B661F794914009F2DE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F4C92B6C1F795976009F2DE1 /* Contato.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contato.swift; sourceTree = "<group>"; };
+		F4C92B721F797BF5009F2DE1 /* ContatoRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatoRepository.swift; sourceTree = "<group>"; };
+		F4C92B741F7982FD009F2DE1 /* ContatoObjC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContatoObjC.h; sourceTree = "<group>"; };
+		F4C92B751F7982FD009F2DE1 /* ContatoObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContatoObjC.m; sourceTree = "<group>"; };
+		F4C92B761F7982FD009F2DE1 /* ContatosIP67-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Bridging-Header.h"; sourceTree = "<group>"; };
+		F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,13 +66,19 @@
 		F4C92B561F794914009F2DE1 /* ContatosIP67 */ = {
 			isa = PBXGroup;
 			children = (
+				F4C92B741F7982FD009F2DE1 /* ContatoObjC.h */,
+				F4C92B751F7982FD009F2DE1 /* ContatoObjC.m */,
+				F4C92B761F7982FD009F2DE1 /* ContatosIP67-Bridging-Header.h */,
 				F4C92B571F794914009F2DE1 /* AppDelegate.swift */,
 				F4C92B591F794914009F2DE1 /* ViewController.swift */,
+				F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */,
 				F4C92B5B1F794914009F2DE1 /* Main.storyboard */,
 				F4C92B611F794914009F2DE1 /* Assets.xcassets */,
 				F4C92B631F794914009F2DE1 /* LaunchScreen.storyboard */,
 				F4C92B661F794914009F2DE1 /* Info.plist */,
 				F4C92B5E1F794914009F2DE1 /* ContatosIP67.xcdatamodeld */,
+				F4C92B6C1F795976009F2DE1 /* Contato.swift */,
+				F4C92B721F797BF5009F2DE1 /* ContatoRepository.swift */,
 			);
 			path = ContatosIP67;
 			sourceTree = "<group>";
@@ -99,6 +115,7 @@
 				TargetAttributes = {
 					F4C92B531F794913009F2DE1 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -139,8 +156,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4C92B731F797BF5009F2DE1 /* ContatoRepository.swift in Sources */,
+				F4C92B6D1F795976009F2DE1 /* Contato.swift in Sources */,
 				F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */,
+				F4C92B771F7982FD009F2DE1 /* ContatoObjC.m in Sources */,
 				F4C92B601F794914009F2DE1 /* ContatosIP67.xcdatamodeld in Sources */,
+				F4C92B791F798CC5009F2DE1 /* ListaContatosTableViewController.swift in Sources */,
 				F4C92B581F794914009F2DE1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,10 +285,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ContatosIP67/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fcrespo82.ContatosIP67;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ContatosIP67/ContatosIP67-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -276,10 +300,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = ContatosIP67/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.fcrespo82.ContatosIP67;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ContatosIP67/ContatosIP67-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -303,6 +329,7 @@
 				F4C92B6B1F794914009F2DE1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
