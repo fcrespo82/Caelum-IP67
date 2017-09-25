@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     private var repository: ContatoRepository
-        
+    
     @IBOutlet var nomeTextField: UITextField!
     
     @IBOutlet var telefoneTextField: UITextField!
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var siteTextField: UITextField!
     
-    @IBOutlet var salvarButton: UIButton!
+    @IBOutlet var salvarButton: UIBarButtonItem!
     
     @IBOutlet var titleLabel: UILabel!
     
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         
         if !(nomeTextField.text?.isEmpty)! {
             if let nome = nomeTextField.text {
-                titleLabel.text = "Salvo o contato, \(nome)"
+                titleLabel.text = "Contato, \(nome)"
             }
             
             contato = ContatoObjC(name: nomeTextField.text!)
@@ -59,8 +59,10 @@ class ViewController: UIViewController {
                 print(repository.lista())
             }
         } else {
-            titleLabel.text = "Olá"
+            titleLabel.text = "Contato"
         }
+        
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }
