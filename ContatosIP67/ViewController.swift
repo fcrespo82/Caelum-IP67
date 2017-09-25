@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         
         if !(nomeTextField.text?.isEmpty)! {
             if let nome = nomeTextField.text {
-                titleLabel.text = "Contato, \(nome)"
+                titleLabel.text = "Contato \(nome)"
             }
             
             contato = ContatoObjC(name: nomeTextField.text!)
