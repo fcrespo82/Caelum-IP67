@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4B7875A1F7AD2DE00B4956B /* FormularioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */; };
 		F4C3F2151F7A975700B72F3C /* ListaContatosManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */; };
 		F4C92B581F794914009F2DE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B571F794914009F2DE1 /* AppDelegate.swift */; };
 		F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B591F794914009F2DE1 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormularioDelegate.swift; sourceTree = "<group>"; };
 		F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosManualViewController.swift; sourceTree = "<group>"; };
 		F4C92B541F794914009F2DE1 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C92B571F794914009F2DE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				F4C92B761F7982FD009F2DE1 /* ContatosIP67-Bridging-Header.h */,
 				F4C92B571F794914009F2DE1 /* AppDelegate.swift */,
 				F4C92B591F794914009F2DE1 /* ViewController.swift */,
+				F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */,
 				F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */,
 				F4C92B5B1F794914009F2DE1 /* Main.storyboard */,
 				F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */,
@@ -159,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4B7875A1F7AD2DE00B4956B /* FormularioDelegate.swift in Sources */,
 				F4C92B731F797BF5009F2DE1 /* ContatoRepository.swift in Sources */,
 				F4C92B6D1F795976009F2DE1 /* Contato.swift in Sources */,
 				F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */,

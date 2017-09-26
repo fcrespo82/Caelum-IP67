@@ -24,7 +24,9 @@ class ViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
     
-    private var contato: ContatoObjC?
+    var contato: ContatoObjC?
+    
+    var delegate: FormularioDelegate?
     
     required init?(coder aDecoder:NSCoder) {
         repository = ContatoRepository.sharedInstance()
@@ -34,6 +36,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if let contato = contato {
+            self.nomeTextField.text = contato.nome
+            self.telefoneTextField.text = contato.telefone
+            self.enderecoTextField.text = contato.endereco
+            self.siteTextField.text = contato.site
+            
+            let editButton = UIBarButtonItem(title: "Confirmar", style: .done, target: self, action: #selector(atualizaContato))
+            
+            self.navigationItem.rightBarButtonItem = editButton
+        }
+        
+        updateUI()
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,32 +57,49 @@ class ViewController: UIViewController {
     }
     
     @IBAction func salvaAction() {
+        pegaDados()
+        
+        updateUI()
+        
+        repository.salva(contato!)
+        
+        delegate?.criado(contato!)
+        
+        _ = self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func atualizaContato() {
+        pegaDados()
+        
+        updateUI()
+        
+        delegate?.atualizado(contato!)
+        
+        _ = self.navigationController?.popViewController(animated: true)
+        
+    }
+    
+    func updateUI() {
         
         if !(nomeTextField.text?.isEmpty)! {
             if let nome = nomeTextField.text {
                 titleLabel.text = "Contato \(nome)"
             }
-            
-            pegaDados()
-            guard let contato = contato else { return }
-            repository.salva(contato: contato)
-            
         } else {
             titleLabel.text = "Contato"
         }
-        
-        _ = self.navigationController?.popViewController(animated: true)
     }
-    
     
     func pegaDados() {
         
-        contato = ContatoObjC(name: nomeTextField.text!)
-        guard let contato = contato else { return }
-        contato.endereco = enderecoTextField.text
-        contato.telefone = telefoneTextField.text
-        contato.site = siteTextField.text
-        
+        if contato == nil {
+            contato = ContatoObjC(name: nomeTextField.text!)
+        }
+        contato!.nome = nomeTextField.text
+        contato!.endereco = enderecoTextField.text
+        contato!.telefone = telefoneTextField.text
+        contato!.site = siteTextField.text
         
     }
     

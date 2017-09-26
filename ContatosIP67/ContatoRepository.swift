@@ -29,7 +29,7 @@ class ContatoRepository: NSObject {
         return self.sharedRepository!
     }
     
-    func salva(contato: ContatoObjC) {
+    func salva(_ contato: ContatoObjC) {
         contatos.append(contato)
     }
     
@@ -41,7 +41,16 @@ class ContatoRepository: NSObject {
         return contatos[indexPath.row]
     }
     
+    func indexPathForContato(_ contato: ContatoObjC) -> IndexPath {
+        let index = contatos.index(of: contato)
+        return IndexPath(row: index!, section: 0)
+    }
+    
     func sections() -> Int {
+//        let map = contatos.map { (contato) -> String in
+//            return contato.nome.substring(to: newIndex)
+//        }
+        
         return 1
     }
     

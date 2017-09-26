@@ -10,7 +10,7 @@
         <!--Contato-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ContatosIP67" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="formularioContato" id="BYZ-38-t0r" customClass="ViewController" customModule="ContatosIP67" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -110,11 +110,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContatoCell" textLabel="vfG-zO-Gio" detailTextLabel="SNi-Yc-fRS" style="IBUITableViewCellStyleSubtitle" id="jST-OR-2GX">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ContatoCell" textLabel="vfG-zO-Gio" detailTextLabel="SNi-Yc-fRS" style="IBUITableViewCellStyleSubtitle" id="jST-OR-2GX">
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jST-OR-2GX" id="9BG-nE-UHL">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vfG-zO-Gio">
@@ -143,6 +143,11 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="TableViewController" id="WXn-Ek-faN"/>
                     <navigationItem key="navigationItem" title="Lista de contatos" id="Y3L-9I-wlU">
+                        <barButtonItem key="leftBarButtonItem" title="Lista" id="Fwv-OS-d6t">
+                            <connections>
+                                <segue destination="gqt-Vf-Bfo" kind="show" identifier="listaManual" id="22o-C6-tGi"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="S5W-qA-2rU">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="show" identifier="NovoContato" id="eUP-jE-iLj"/>
@@ -152,7 +157,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pyf-ks-vHX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-302" y="-422"/>
+            <point key="canvasLocation" x="-351" y="-422"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ahh-fN-mYE">
@@ -164,8 +169,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gqt-Vf-Bfo" kind="relationship" relationship="viewControllers" id="qpo-kd-5ly"/>
                         <segue destination="s11-d5-rxN" kind="relationship" relationship="viewControllers" id="nRW-KF-Mg6"/>
+                        <segue destination="gqt-Vf-Bfo" kind="relationship" relationship="viewControllers" id="qpo-kd-5ly"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u02-1K-fli" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -191,7 +196,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="celula" id="lst-hU-1la">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lst-hU-1la" id="v3m-yy-pX8">
                                             <frame key="frameInset" width="375" height="43"/>
@@ -247,4 +252,7 @@
             <point key="canvasLocation" x="-2255.1999999999998" y="478.11094452773619"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="22o-C6-tGi"/>
+    </inferredMetricsTieBreakers>
 </document>
