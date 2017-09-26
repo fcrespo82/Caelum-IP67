@@ -21,19 +21,36 @@ class ContatoRepository: NSObject {
     }
     
     static func sharedInstance() -> ContatoRepository {
-        
-        guard let sharedRepository = sharedRepository else { return ContatoRepository() }
-    
-        return sharedRepository
-        
+        if let sharedRepository = self.sharedRepository {
+            return sharedRepository
+        } else {
+            self.sharedRepository = ContatoRepository()
+        }
+        return self.sharedRepository!
     }
     
     func salva(contato: ContatoObjC) {
         contatos.append(contato)
     }
     
-    func lista()-> [ContatoObjC] {
+    func listaTodos()-> [ContatoObjC] {
         return contatos
+    }
+    
+    func contatoForIndexPath(_ indexPath: IndexPath) -> ContatoObjC {
+        return contatos[indexPath.row]
+    }
+    
+    func sections() -> Int {
+        return 1
+    }
+    
+    func rowsForSection(_ section: Int) -> Int {
+        return contatos.count
+    }
+    
+    func deleteFromIndexPath(_ indexPath: IndexPath) {
+        contatos.remove(at: indexPath.row)
     }
     
 }

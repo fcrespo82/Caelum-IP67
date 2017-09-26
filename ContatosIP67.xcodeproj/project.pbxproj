@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4C3F2151F7A975700B72F3C /* ListaContatosManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */; };
 		F4C92B581F794914009F2DE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B571F794914009F2DE1 /* AppDelegate.swift */; };
 		F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B591F794914009F2DE1 /* ViewController.swift */; };
 		F4C92B5D1F794914009F2DE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C92B5B1F794914009F2DE1 /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosManualViewController.swift; sourceTree = "<group>"; };
 		F4C92B541F794914009F2DE1 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C92B571F794914009F2DE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C92B591F794914009F2DE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				F4C92B591F794914009F2DE1 /* ViewController.swift */,
 				F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */,
 				F4C92B5B1F794914009F2DE1 /* Main.storyboard */,
+				F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */,
 				F4C92B611F794914009F2DE1 /* Assets.xcassets */,
 				F4C92B631F794914009F2DE1 /* LaunchScreen.storyboard */,
 				F4C92B661F794914009F2DE1 /* Info.plist */,
@@ -163,6 +166,7 @@
 				F4C92B601F794914009F2DE1 /* ContatosIP67.xcdatamodeld in Sources */,
 				F4C92B791F798CC5009F2DE1 /* ListaContatosTableViewController.swift in Sources */,
 				F4C92B581F794914009F2DE1 /* AppDelegate.swift in Sources */,
+				F4C3F2151F7A975700B72F3C /* ListaContatosManualViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

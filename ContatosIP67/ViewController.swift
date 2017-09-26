@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     
     @IBOutlet var titleLabel: UILabel!
     
+    private var contato: ContatoObjC?
     
     required init?(coder aDecoder:NSCoder) {
         repository = ContatoRepository.sharedInstance()
@@ -42,28 +43,34 @@ class ViewController: UIViewController {
     
     @IBAction func salvaAction() {
         
-        var contato: ContatoObjC?
-        
-        
         if !(nomeTextField.text?.isEmpty)! {
             if let nome = nomeTextField.text {
                 titleLabel.text = "Contato \(nome)"
             }
             
-            contato = ContatoObjC(name: nomeTextField.text!)
-            if let contato = contato {
-                contato.endereco = enderecoTextField.text
-                contato.telefone = telefoneTextField.text
-                contato.site = siteTextField.text
-                repository.salva(contato: contato)
-                print(repository.lista())
-            }
+            pegaDados()
+            guard let contato = contato else { return }
+            repository.salva(contato: contato)
+            
         } else {
             titleLabel.text = "Contato"
         }
         
         _ = self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    func pegaDados() {
+        
+        contato = ContatoObjC(name: nomeTextField.text!)
+        guard let contato = contato else { return }
+        contato.endereco = enderecoTextField.text
+        contato.telefone = telefoneTextField.text
+        contato.site = siteTextField.text
+        
+        
+    }
+    
     
 }
 
