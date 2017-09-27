@@ -37,7 +37,7 @@ class ContatoRepository: NSObject {
         return contatos
     }
     
-    func contatoForIndexPath(_ indexPath: IndexPath) -> ContatoObjC {
+    func contatoForIndexPath(_ indexPath: IndexPath) -> ContatoObjC? {
         return contatos[indexPath.row]
     }
     

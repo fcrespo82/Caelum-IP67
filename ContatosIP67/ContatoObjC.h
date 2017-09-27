@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface ContatoObjC : NSObject
 
@@ -14,6 +15,7 @@
 @property (strong) NSString* telefone;
 @property (strong) NSString* endereco;
 @property (strong) NSString* site;
+@property (strong) UIImage* image;
 
 - (instancetype)initWithName:(NSString *)nome;
 

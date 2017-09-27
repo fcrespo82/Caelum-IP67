@@ -15,7 +15,7 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
     
     private var indexPath: IndexPath?
     
-    static let reuseIdentifier = "ContatoCell"
+    static let reuseIdentifier = "ContatoCustomCell"
     
     // MARK: - Initializer
     
@@ -29,6 +29,13 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let xib = UINib(nibName: "ContatoTableViewCell", bundle: nil)
+        tableView.register(xib, forCellReuseIdentifier: "ContatoCustomCell")
+        
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(exibeAcoes(gesture:)))
+        
+        tableView.addGestureRecognizer(gesture)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,19 +58,54 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
         return repository.sections()
     }
     
+    //    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+    //        return repository.sectionNames()
+    //    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repository.rowsForSection(section)
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cell = getCell() as! ContatoTableViewCell
+        
+        return cell.bounds.height
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = getCell()
+        let cell = getCell() as! ContatoTableViewCell
         
-        let contato = repository.contatoForIndexPath(indexPath)
+        if let contato = repository.contatoForIndexPath(indexPath) {
+            
+            cell.titleLabel.text = contato.nome
+            cell.customImageView?.contentMode = .scaleAspectFill
+            cell.customImageView?.image = contato.image
+            
+            cell.customImageView?.layer.borderWidth = 1
+            cell.customImageView?.layer.borderColor = UIColor.red.cgColor
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: { 
+                cell.customImageView?.layer.cornerRadius = (cell.customImageView?.bounds.height)! / 2
+            })
         
-        cell.textLabel?.text = contato.nome
-        cell.detailTextLabel?.text = contato.telefone
-        
+            
+            cell.customImageView?.clipsToBounds = true
+            
+            
+//            cell.textLabel?.text = contato.nome
+//            cell.detailTextLabel?.text = contato.telefone
+//            cell.imageView?.contentMode = .scaleAspectFill
+//            cell.imageView?.image = contato.image
+//            
+//            cell.imageView?.layer.borderWidth = 1
+//            cell.imageView?.layer.borderColor = UIColor.red.cgColor
+//
+//            cell.imageView?.layer.cornerRadius = 7
+//            
+//            cell.imageView?.clipsToBounds = true
+
+        }
         return cell
         
     }
@@ -78,16 +120,17 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let contato = repository.contatoForIndexPath(indexPath)
-        
-        exibeForm(contato)
+        if let contato = repository.contatoForIndexPath(indexPath) {
+            
+            exibeForm(contato)
+        }
         
     }
     
     // MARK: - Functions
     
     func getCell() -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListaContatosTableViewController.reuseIdentifier) else { return UITableViewCell(style: .default, reuseIdentifier: ListaContatosTableViewController.reuseIdentifier) }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListaContatosTableViewController.reuseIdentifier) else { return ContatoTableViewCell(style: .default, reuseIdentifier: ListaContatosTableViewController.reuseIdentifier) }
         return cell
     }
     
@@ -100,6 +143,23 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
         indexPath = repository.indexPathForContato(contato)
         
         navigationController?.pushViewController(formulario, animated: true)
+    }
+    
+    
+    // MARK: - Gestures
+    func exibeAcoes(gesture: UIGestureRecognizer) {
+        print("\(gesture.state.rawValue)")
+        if gesture.state == .began {
+            let ponto = gesture.location(in: tableView)
+            if let index = tableView.indexPathForRow(at: ponto) {
+                if let contato = repository.contatoForIndexPath(index) {
+                    print(contato)
+                    print("Long press")
+                    let gerenciadorAcao = GerenciadorAcao(do: contato)
+                    gerenciadorAcao.exibeAcoes(em: self)
+                }
+            }
+        }
     }
     
     // MARK: - Formulario Delegate

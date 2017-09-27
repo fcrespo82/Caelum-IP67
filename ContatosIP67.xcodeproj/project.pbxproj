@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4810B421F7BD8F5001BA434 /* GerenciadorAcao.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810B411F7BD8F5001BA434 /* GerenciadorAcao.swift */; };
+		F4810B481F7C2496001BA434 /* ContatoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810B461F7C2496001BA434 /* ContatoTableViewCell.swift */; };
+		F4810B491F7C2496001BA434 /* ContatoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4810B471F7C2496001BA434 /* ContatoTableViewCell.xib */; };
+		F4810B4B1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810B4A1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift */; };
+		F4810B4D1F7C3826001BA434 /* ContatosNoMapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810B4C1F7C3826001BA434 /* ContatosNoMapaViewController.swift */; };
 		F4B7875A1F7AD2DE00B4956B /* FormularioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */; };
 		F4C3F2151F7A975700B72F3C /* ListaContatosManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */; };
 		F4C92B581F794914009F2DE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B571F794914009F2DE1 /* AppDelegate.swift */; };
@@ -22,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F4810B411F7BD8F5001BA434 /* GerenciadorAcao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GerenciadorAcao.swift; sourceTree = "<group>"; };
+		F4810B461F7C2496001BA434 /* ContatoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatoTableViewCell.swift; sourceTree = "<group>"; };
+		F4810B471F7C2496001BA434 /* ContatoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContatoTableViewCell.xib; sourceTree = "<group>"; };
+		F4810B4A1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CelulaNutellaTableViewCell.swift; sourceTree = "<group>"; };
+		F4810B4C1F7C3826001BA434 /* ContatosNoMapaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosNoMapaViewController.swift; sourceTree = "<group>"; };
 		F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormularioDelegate.swift; sourceTree = "<group>"; };
 		F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosManualViewController.swift; sourceTree = "<group>"; };
 		F4C92B541F794914009F2DE1 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +88,10 @@
 				F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */,
 				F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */,
 				F4C92B5B1F794914009F2DE1 /* Main.storyboard */,
+				F4810B4C1F7C3826001BA434 /* ContatosNoMapaViewController.swift */,
+				F4810B4A1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift */,
+				F4810B461F7C2496001BA434 /* ContatoTableViewCell.swift */,
+				F4810B471F7C2496001BA434 /* ContatoTableViewCell.xib */,
 				F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */,
 				F4C92B611F794914009F2DE1 /* Assets.xcassets */,
 				F4C92B631F794914009F2DE1 /* LaunchScreen.storyboard */,
@@ -85,6 +99,7 @@
 				F4C92B5E1F794914009F2DE1 /* ContatosIP67.xcdatamodeld */,
 				F4C92B6C1F795976009F2DE1 /* Contato.swift */,
 				F4C92B721F797BF5009F2DE1 /* ContatoRepository.swift */,
+				F4810B411F7BD8F5001BA434 /* GerenciadorAcao.swift */,
 			);
 			path = ContatosIP67;
 			sourceTree = "<group>";
@@ -149,6 +164,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4810B491F7C2496001BA434 /* ContatoTableViewCell.xib in Resources */,
 				F4C92B651F794914009F2DE1 /* LaunchScreen.storyboard in Resources */,
 				F4C92B621F794914009F2DE1 /* Assets.xcassets in Resources */,
 				F4C92B5D1F794914009F2DE1 /* Main.storyboard in Resources */,
@@ -163,9 +179,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F4B7875A1F7AD2DE00B4956B /* FormularioDelegate.swift in Sources */,
+				F4810B481F7C2496001BA434 /* ContatoTableViewCell.swift in Sources */,
 				F4C92B731F797BF5009F2DE1 /* ContatoRepository.swift in Sources */,
 				F4C92B6D1F795976009F2DE1 /* Contato.swift in Sources */,
+				F4810B421F7BD8F5001BA434 /* GerenciadorAcao.swift in Sources */,
+				F4810B4D1F7C3826001BA434 /* ContatosNoMapaViewController.swift in Sources */,
 				F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */,
+				F4810B4B1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift in Sources */,
 				F4C92B771F7982FD009F2DE1 /* ContatoObjC.m in Sources */,
 				F4C92B601F794914009F2DE1 /* ContatosIP67.xcdatamodeld in Sources */,
 				F4C92B791F798CC5009F2DE1 /* ListaContatosTableViewController.swift in Sources */,

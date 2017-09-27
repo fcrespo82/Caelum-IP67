@@ -80,10 +80,10 @@ class ListaContatosManualViewController: UIViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = getCell()
+        let cell = getCell() as! CelulaNutellaTableViewCell
         
-        cell.textLabel?.text = items?[indexPath.row]
-        
+        cell.label?.text = items?[indexPath.row]
+        cell.switch.isOn = indexPath.row % 2 == 0
         return cell
     }
     
