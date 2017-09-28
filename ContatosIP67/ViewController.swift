@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
@@ -24,6 +25,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     @IBOutlet weak var fotoImageView: UIImageView!
     
+    @IBOutlet weak var latitudeTextField: UITextField!
+    
+    @IBOutlet weak var logitudeTextField: UITextField!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBOutlet weak var getLocationButton: UIButton!
     var contato: ContatoObjC?
     
     var delegate: FormularioDelegate?
@@ -42,7 +50,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.fotoImageView.layer.borderWidth = 2
         self.fotoImageView.layer.borderColor = UIColor.red.cgColor
         self.fotoImageView.layer.cornerRadius = 25.0
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: {
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
             self.fotoImageView.layer.cornerRadius = self.fotoImageView.bounds.height / 2
         })
         self.fotoImageView.clipsToBounds = true
@@ -53,7 +61,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.enderecoTextField.text = contato.endereco
             self.siteTextField.text = contato.site
             self.fotoImageView.image = contato.image
-            
+            self.latitudeTextField.text = contato.latitude.description
+            self.logitudeTextField.text = contato.longitude.description
             
             let editButton = UIBarButtonItem(title: "Confirmar", style: .done, target: self, action: #selector(atualizaContato))
             
@@ -90,13 +99,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func pegaDados() {
         
         if contato == nil {
-            contato = ContatoObjC(name: nomeTextField.text!)
+            contato = repository.novoContato() // ContatoObjC(name: nomeTextField.text!)
         }
         contato!.nome = nomeTextField.text
         contato!.endereco = enderecoTextField.text
         contato!.telefone = telefoneTextField.text
         contato!.site = siteTextField.text
         contato!.image = fotoImageView.image
+        if let latitude = Double(latitudeTextField.text!) {
+            contato!.latitude = latitude as NSNumber
+        }
+        if let longitude = Double(logitudeTextField.text!) {
+            contato!.longitude = longitude as NSNumber
+        }
     }
     
     @IBAction func selecionaFoto(_ sender: AnyObject) {
@@ -106,7 +121,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         
         alert.addAction(cancelar)
-
+        
         
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let library = UIAlertAction(title: "Biblioteca", style: .default, handler: { (alertAction) in
@@ -124,6 +139,52 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.present(alert, animated: true, completion: nil)
         
         print("Selecione sua foto")
+    }
+    
+    @IBAction func buscaGeoLocation(_ sender: UIButton) {
+        let geo = CLGeocoder()
+        
+        activityIndicator.startAnimating()
+        sender.isEnabled = false
+        
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = self.enderecoTextField.text
+        
+        let search = MKLocalSearch(request: request)
+        
+        search.start { (response, error) in
+            
+            for item in (response?.mapItems)! {
+                print(item.name)
+            }
+            
+        }
+        
+        geo.geocodeAddressString(enderecoTextField.text!) { (placemarks, error) in
+            if (error != nil) {
+                return
+            }
+            
+            
+            if (placemarks?.count)! > 0 {
+                let placemark = placemarks![0]
+                
+                self.latitudeTextField.text = placemark.location!.coordinate.latitude.description
+                self.logitudeTextField.text = placemark.location!.coordinate.longitude.description
+                
+                print("latitude=\(placemark.location!.coordinate.latitude) longitude=\(placemark.location!.coordinate.longitude)")
+                
+                geo.reverseGeocodeLocation(placemark.location!, completionHandler: { (placemarks, erro) in
+                    
+                    for place in placemarks! {
+                        print(place.name)
+                    }
+                    
+                })
+            }
+            self.activityIndicator.stopAnimating()
+            sender.isEnabled = true
+        }
     }
     
     func pegaFoto(de sourceType:UIImagePickerControllerSourceType) {

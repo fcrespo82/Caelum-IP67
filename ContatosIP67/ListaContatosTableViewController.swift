@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ListaContatosTableViewController: UITableViewController, FormularioDelegate {
+class ListaContatosTableViewController: UITableViewController, FormularioDelegate, UISearchResultsUpdating {
     
     private var repository: ContatoRepository
     
@@ -17,13 +17,39 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
     
     static let reuseIdentifier = "ContatoCustomCell"
     
-    // MARK: - Initializer
+    let searchController = UISearchController(searchResultsController: nil)
     
+    var contatosFiltrados = [ContatoObjC]()
+    
+    
+    // MARK: - Initializer
     required init?(coder aDecoder:NSCoder) {
         repository = ContatoRepository.sharedInstance()
         super.init(coder: aDecoder)
         //        self.navigationItem.leftBarButtonItem = self.editButtonItem
     }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+    
+    func searchBarIsEmpty() -> Bool {
+        // Returns true if the text is empty or nil
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func filterContentForSearchText(_ searchText: String, scope: String = "All") {
+        contatosFiltrados = repository.listaTodos().filter({( contato : ContatoObjC) -> Bool in
+            return contato.nome.lowercased().contains(searchText.lowercased())
+        })
+        
+        tableView.reloadData()
+    }
+    
     
     // MARK: - View related
     
@@ -36,6 +62,13 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
         let gesture = UILongPressGestureRecognizer(target: self, action: #selector(exibeAcoes(gesture:)))
         
         tableView.addGestureRecognizer(gesture)
+        
+        
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +96,11 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
     //    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repository.rowsForSection(section)
+        if isFiltering() {
+            return contatosFiltrados.count
+        } else {
+            return repository.rowsForSection(section)
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -76,7 +113,15 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
         
         let cell = getCell() as! ContatoTableViewCell
         
-        if let contato = repository.contatoForIndexPath(indexPath) {
+        let contato: ContatoObjC?
+        
+        if isFiltering() {
+            contato = contatosFiltrados[indexPath.row]
+        } else {
+            contato = repository.contatoForIndexPath(indexPath)
+        }
+        
+        if let contato = contato {
             
             cell.titleLabel.text = contato.nome
             cell.customImageView?.contentMode = .scaleAspectFill
@@ -85,26 +130,26 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
             cell.customImageView?.layer.borderWidth = 1
             cell.customImageView?.layer.borderColor = UIColor.red.cgColor
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100), execute: { 
+            DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
                 cell.customImageView?.layer.cornerRadius = (cell.customImageView?.bounds.height)! / 2
             })
-        
+            
             
             cell.customImageView?.clipsToBounds = true
             
             
-//            cell.textLabel?.text = contato.nome
-//            cell.detailTextLabel?.text = contato.telefone
-//            cell.imageView?.contentMode = .scaleAspectFill
-//            cell.imageView?.image = contato.image
-//            
-//            cell.imageView?.layer.borderWidth = 1
-//            cell.imageView?.layer.borderColor = UIColor.red.cgColor
-//
-//            cell.imageView?.layer.cornerRadius = 7
-//            
-//            cell.imageView?.clipsToBounds = true
-
+            //            cell.textLabel?.text = contato.nome
+            //            cell.detailTextLabel?.text = contato.telefone
+            //            cell.imageView?.contentMode = .scaleAspectFill
+            //            cell.imageView?.image = contato.image
+            //
+            //            cell.imageView?.layer.borderWidth = 1
+            //            cell.imageView?.layer.borderColor = UIColor.red.cgColor
+            //
+            //            cell.imageView?.layer.cornerRadius = 7
+            //
+            //            cell.imageView?.clipsToBounds = true
+            
         }
         return cell
         
@@ -112,15 +157,28 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            repository.deleteFromIndexPath(indexPath)
+            if isFiltering() {
+                contatosFiltrados.remove(at: indexPath.row)
+            } else {
+                repository.deleteFromIndexPath(indexPath)
+            }
+            
             self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
             self.setEditing(false, animated: true)
             
         }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let contato = repository.contatoForIndexPath(indexPath) {
+        let contato: ContatoObjC?
+        if isFiltering() {
+            contato =  contatosFiltrados[indexPath.row]
+        } else {
+            contato = repository.contatoForIndexPath(indexPath)
+        }
+        
+        if let contato = contato {
             
             exibeForm(contato)
         }
@@ -140,7 +198,11 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
         
         formulario.contato = contato
         formulario.delegate = self
-        indexPath = repository.indexPathForContato(contato)
+        if isFiltering() {
+            indexPath = IndexPath(row:contatosFiltrados.index(of: contato)!, section:0)
+        } else {
+            indexPath = repository.indexPathForContato(contato)
+        }
         
         navigationController?.pushViewController(formulario, animated: true)
     }

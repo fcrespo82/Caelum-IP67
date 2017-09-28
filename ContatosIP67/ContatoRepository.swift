@@ -7,17 +7,67 @@
 //
 
 import Foundation
-
+import CoreData
 
 class ContatoRepository: NSObject {
     
     private var contatos: [ContatoObjC]
- 
+    
     static private var sharedRepository: ContatoRepository?
+    
+    let coreDataUtil: CoreDataUtil
     
     private override init() {
         contatos = [ContatoObjC]()
+        coreDataUtil = CoreDataUtil()
         super.init()
+        self.populaBanco()
+        self.carregaDados()
+    }
+    
+    func novoContato() -> ContatoObjC {
+        return NSEntityDescription.insertNewObject(forEntityName: "ContatoObjC", into: coreDataUtil.persistentContainer.viewContext) as! ContatoObjC
+    }
+    
+    private func carregaDados() {
+        
+        let request = NSFetchRequest<ContatoObjC>(entityName: "ContatoObjC")
+        
+        let orderByName = NSSortDescriptor(key: "nome", ascending: true)
+        
+        request.sortDescriptors?.append(orderByName)
+        
+        do {
+            self.contatos = try coreDataUtil.persistentContainer.viewContext.fetch(request)
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func populaBanco() {
+        let myDefaults = UserDefaults.standard
+        
+        if !myDefaults.bool(forKey: "onboardingFinished") {
+            //            let contato = ContatoObjC(name: "Fernando")!
+            //            contato.endereco = "03134001"
+            //            contato.latitude = -23.5897197
+            //            contato.longitude = -46.5826299
+            //            contatos.append(contato)
+            
+            let contatoCD = self.novoContato()
+            
+            contatoCD.nome = "Fernando"
+            contatoCD.endereco = "Rua Ibitirama"
+            contatoCD.latitude = -23.5897197
+            contatoCD.longitude = -46.5826299
+            contatoCD.site = "fcrespo82.github.io"
+            coreDataUtil.saveContext()
+            
+            myDefaults.set(true, forKey: "onboardingFinished")
+            myDefaults.synchronize()
+        }
+        
     }
     
     static func sharedInstance() -> ContatoRepository {
@@ -30,6 +80,7 @@ class ContatoRepository: NSObject {
     }
     
     func salva(_ contato: ContatoObjC) {
+        coreDataUtil.saveContext()
         contatos.append(contato)
     }
     
@@ -47,9 +98,9 @@ class ContatoRepository: NSObject {
     }
     
     func sections() -> Int {
-//        let map = contatos.map { (contato) -> String in
-//            return contato.nome.substring(to: newIndex)
-//        }
+        //        let map = contatos.map { (contato) -> String in
+        //            return contato.nome.substring(to: newIndex)
+        //        }
         
         return 1
     }
@@ -59,6 +110,8 @@ class ContatoRepository: NSObject {
     }
     
     func deleteFromIndexPath(_ indexPath: IndexPath) {
+        let contato = contatoForIndexPath(indexPath)!
+        coreDataUtil.persistentContainer.viewContext.delete(contato)
         contatos.remove(at: indexPath.row)
     }
     

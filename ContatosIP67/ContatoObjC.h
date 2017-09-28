@@ -8,14 +8,18 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MapKit/MKAnnotation.h>
+#import <CoreData/CoreData.h>
 
-@interface ContatoObjC : NSObject
+@interface ContatoObjC : NSManagedObject <MKAnnotation>
 
 @property (strong) NSString* nome;
 @property (strong) NSString* telefone;
 @property (strong) NSString* endereco;
 @property (strong) NSString* site;
 @property (strong) UIImage* image;
+@property (strong) NSNumber* latitude;
+@property (strong) NSNumber* longitude;
 
 - (instancetype)initWithName:(NSString *)nome;
 

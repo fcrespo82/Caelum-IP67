@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,60 +15,75 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="TPKeyboardAvoidingScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7QI-rl-Ts1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nome" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7QI-rl-Ts1">
+                                <frame key="frameInset" minX="16" minY="379" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-FZ-ygw">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Telefone" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5Hi-FZ-ygw">
+                                <frame key="frameInset" minX="16" minY="417" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="phonePad"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hz4-OD-sDk">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Endereço" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Hz4-OD-sDk">
+                                <frame key="frameInset" minX="16" minY="455" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="alphabet"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Site" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-qF-zuF">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Site" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eeV-qF-zuF">
+                                <frame key="frameInset" minX="16" minY="493" width="343" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
                             </textField>
-                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e4p-aJ-PXL">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kuE-af-6Vd">
+                                <frame key="frameInset" minX="16" minY="531" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gum-VS-jfZ">
+                                <frame key="frameInset" minX="16" minY="569" width="251" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e4p-aJ-PXL">
+                                <frame key="frameInset" minX="60" minY="116" width="255" height="255"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="140" id="uPW-vI-khd"/>
-                                    <constraint firstAttribute="width" secondItem="e4p-aJ-PXL" secondAttribute="height" multiplier="1:1" id="zVX-gp-jQf"/>
-                                </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="2VD-fi-475" appends="YES" id="9dN-ux-xKB"/>
                                 </connections>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7p-kn-069">
+                                <frame key="frameInset" minX="275" minY="515" width="84" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="gps"/>
+                                <connections>
+                                    <action selector="buscaGeoLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aue-3X-ZSN"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="3TQ-5Q-a8U">
+                                <frame key="frameInset" minX="307" minY="547" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Hz4-OD-sDk" firstAttribute="trailing" secondItem="eeV-qF-zuF" secondAttribute="trailing" id="7kp-3t-AUh"/>
-                            <constraint firstItem="Hz4-OD-sDk" firstAttribute="leading" secondItem="eeV-qF-zuF" secondAttribute="leading" id="HAx-dm-GCi"/>
-                            <constraint firstItem="7QI-rl-Ts1" firstAttribute="leading" secondItem="5Hi-FZ-ygw" secondAttribute="leading" id="HTe-48-Tc9"/>
-                            <constraint firstItem="eeV-qF-zuF" firstAttribute="top" secondItem="Hz4-OD-sDk" secondAttribute="bottom" constant="8" symbolic="YES" id="JzP-mX-hxV"/>
-                            <constraint firstItem="5Hi-FZ-ygw" firstAttribute="top" secondItem="7QI-rl-Ts1" secondAttribute="bottom" constant="8" symbolic="YES" id="Kke-PO-NVL"/>
-                            <constraint firstItem="e4p-aJ-PXL" firstAttribute="centerX" secondItem="7QI-rl-Ts1" secondAttribute="centerX" id="UKo-Im-tt3"/>
-                            <constraint firstItem="7QI-rl-Ts1" firstAttribute="top" secondItem="e4p-aJ-PXL" secondAttribute="bottom" constant="8" symbolic="YES" id="VvE-g4-3ep"/>
-                            <constraint firstItem="5Hi-FZ-ygw" firstAttribute="trailing" secondItem="Hz4-OD-sDk" secondAttribute="trailing" id="dqd-O9-hHb"/>
-                            <constraint firstItem="7QI-rl-Ts1" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="ghF-Wt-qU4"/>
-                            <constraint firstItem="7QI-rl-Ts1" firstAttribute="trailing" secondItem="5Hi-FZ-ygw" secondAttribute="trailing" id="hTQ-rd-6u3"/>
-                            <constraint firstItem="5Hi-FZ-ygw" firstAttribute="leading" secondItem="Hz4-OD-sDk" secondAttribute="leading" id="hWd-WM-9rT"/>
-                            <constraint firstItem="7QI-rl-Ts1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pT2-fo-2bg"/>
-                            <constraint firstItem="Hz4-OD-sDk" firstAttribute="top" secondItem="5Hi-FZ-ygw" secondAttribute="bottom" constant="8" symbolic="YES" id="sWH-Ak-uQe"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="eeV-qF-zuF" secondAttribute="bottom" constant="254" id="tls-2e-jZk"/>
-                            <constraint firstItem="e4p-aJ-PXL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="uPy-Q8-0g7"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Contato" id="NEx-Mi-Tls">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="btA-sG-t4h">
@@ -79,8 +93,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="3TQ-5Q-a8U" id="Mjk-cW-Oqa"/>
                         <outlet property="enderecoTextField" destination="Hz4-OD-sDk" id="Ftb-uu-M4F"/>
                         <outlet property="fotoImageView" destination="e4p-aJ-PXL" id="Nht-IK-L95"/>
+                        <outlet property="getLocationButton" destination="T7p-kn-069" id="g0a-6p-liq"/>
+                        <outlet property="latitudeTextField" destination="kuE-af-6Vd" id="cF1-de-xx0"/>
+                        <outlet property="logitudeTextField" destination="Gum-VS-jfZ" id="Pc2-1d-qWf"/>
                         <outlet property="nomeTextField" destination="7QI-rl-Ts1" id="wUb-V7-HTM"/>
                         <outlet property="salvarButton" destination="btA-sG-t4h" id="Sdq-h3-eiz"/>
                         <outlet property="siteTextField" destination="eeV-qF-zuF" id="gH2-kq-xyf"/>
@@ -94,7 +112,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="621.60000000000002" y="-422.33883058470769"/>
+            <point key="canvasLocation" x="540" y="-432.23388305847078"/>
         </scene>
         <!--Contatos-->
         <scene sceneID="cDE-tc-cSz">
@@ -218,7 +236,7 @@
             </objects>
             <point key="canvasLocation" x="-1351.2" y="381.85907046476763"/>
         </scene>
-        <!--Lista Contatos Manual View Controller-->
+        <!--Mais-->
         <scene sceneID="6qk-4Y-a6H">
             <objects>
                 <viewController id="gqt-Vf-Bfo" customClass="ListaContatosManualViewController" customModule="ContatosIP67" customModuleProvider="target" sceneMemberID="viewController">
@@ -300,7 +318,7 @@
                             <constraint firstItem="qSN-tk-Hk8" firstAttribute="trailing" secondItem="tdN-9c-2dx" secondAttribute="trailing" id="vbY-qS-NSk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="bDp-7g-heH"/>
+                    <tabBarItem key="tabBarItem" title="Mais" image="mais" id="bDp-7g-heH"/>
                     <connections>
                         <outlet property="editButton" destination="YrT-98-pTp" id="B8S-5p-9oZ"/>
                         <outlet property="tabelaTableView" destination="Iro-sR-3nN" id="ANh-PH-sfj"/>
@@ -332,7 +350,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gps" width="30" height="30"/>
         <image name="lista-contatos" width="30" height="30"/>
+        <image name="mais" width="30" height="30"/>
         <image name="mapa-contatos" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
