@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95CD2473EA09FB9295DF555D /* libPods-ContatosIP67.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 277C15A5A64E0CBB6391306E /* libPods-ContatosIP67.a */; };
+		491C1609FF85F8C73CE3075A /* Pods_ContatosIP67.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D80CA8C0AA60486DB84D72B7 /* Pods_ContatosIP67.framework */; };
 		F409043A1F7D6E2D008623F0 /* CoreDataUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = F40904391F7D6E2D008623F0 /* CoreDataUtil.swift */; };
 		F423C45F1F7D212B00F1A1B4 /* Vila Mariana.gpx in Resources */ = {isa = PBXBuildFile; fileRef = F423C45E1F7D212B00F1A1B4 /* Vila Mariana.gpx */; };
 		F423C4611F7D29BE00F1A1B4 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = F423C4601F7D29BE00F1A1B4 /* Podfile */; };
@@ -18,6 +18,7 @@
 		F4810B4D1F7C3826001BA434 /* ContatosNoMapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4810B4C1F7C3826001BA434 /* ContatosNoMapaViewController.swift */; };
 		F4B7875A1F7AD2DE00B4956B /* FormularioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */; };
 		F4C3F2151F7A975700B72F3C /* ListaContatosManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */; };
+		F4C5B7331F7E7B6F006182E9 /* CondicaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C5B7321F7E7B6F006182E9 /* CondicaoViewController.swift */; };
 		F4C92B581F794914009F2DE1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B571F794914009F2DE1 /* AppDelegate.swift */; };
 		F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B591F794914009F2DE1 /* ViewController.swift */; };
 		F4C92B5D1F794914009F2DE1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4C92B5B1F794914009F2DE1 /* Main.storyboard */; };
@@ -28,12 +29,13 @@
 		F4C92B731F797BF5009F2DE1 /* ContatoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B721F797BF5009F2DE1 /* ContatoRepository.swift */; };
 		F4C92B771F7982FD009F2DE1 /* ContatoObjC.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B751F7982FD009F2DE1 /* ContatoObjC.m */; };
 		F4C92B791F798CC5009F2DE1 /* ListaContatosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */; };
+		F4E008A01F7EB712007EA81A /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E0089F1F7EB712007EA81A /* Weather.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0C7A6D16FECDDD86F4FE81E5 /* Pods-ContatosIP67.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContatosIP67.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContatosIP67/Pods-ContatosIP67.release.xcconfig"; sourceTree = "<group>"; };
-		277C15A5A64E0CBB6391306E /* libPods-ContatosIP67.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ContatosIP67.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE6642EFBC9AC141D7EEDBB /* Pods-ContatosIP67.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContatosIP67.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ContatosIP67/Pods-ContatosIP67.debug.xcconfig"; sourceTree = "<group>"; };
+		D80CA8C0AA60486DB84D72B7 /* Pods_ContatosIP67.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContatosIP67.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F40904391F7D6E2D008623F0 /* CoreDataUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtil.swift; sourceTree = "<group>"; };
 		F423C45E1F7D212B00F1A1B4 /* Vila Mariana.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "Vila Mariana.gpx"; path = "../Vila Mariana.gpx"; sourceTree = "<group>"; };
 		F423C4601F7D29BE00F1A1B4 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -44,6 +46,7 @@
 		F4810B4C1F7C3826001BA434 /* ContatosNoMapaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContatosNoMapaViewController.swift; sourceTree = "<group>"; };
 		F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormularioDelegate.swift; sourceTree = "<group>"; };
 		F4C3F2141F7A975700B72F3C /* ListaContatosManualViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosManualViewController.swift; sourceTree = "<group>"; };
+		F4C5B7321F7E7B6F006182E9 /* CondicaoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CondicaoViewController.swift; sourceTree = "<group>"; };
 		F4C92B541F794914009F2DE1 /* ContatosIP67.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContatosIP67.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4C92B571F794914009F2DE1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4C92B591F794914009F2DE1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		F4C92B751F7982FD009F2DE1 /* ContatoObjC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContatoObjC.m; sourceTree = "<group>"; };
 		F4C92B761F7982FD009F2DE1 /* ContatosIP67-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ContatosIP67-Bridging-Header.h"; sourceTree = "<group>"; };
 		F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListaContatosTableViewController.swift; sourceTree = "<group>"; };
+		F4E0089F1F7EB712007EA81A /* Weather.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95CD2473EA09FB9295DF555D /* libPods-ContatosIP67.a in Frameworks */,
+				491C1609FF85F8C73CE3075A /* Pods_ContatosIP67.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +79,7 @@
 		354084A86416186F93B6B21E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				277C15A5A64E0CBB6391306E /* libPods-ContatosIP67.a */,
+				D80CA8C0AA60486DB84D72B7 /* Pods_ContatosIP67.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -112,6 +116,8 @@
 				F4B787591F7AD2DE00B4956B /* FormularioDelegate.swift */,
 				F4C92B781F798CC5009F2DE1 /* ListaContatosTableViewController.swift */,
 				F4C92B5B1F794914009F2DE1 /* Main.storyboard */,
+				F4C5B7321F7E7B6F006182E9 /* CondicaoViewController.swift */,
+				F4E0089F1F7EB712007EA81A /* Weather.swift */,
 				F4810B4C1F7C3826001BA434 /* ContatosNoMapaViewController.swift */,
 				F4810B4A1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift */,
 				F4810B461F7C2496001BA434 /* ContatoTableViewCell.swift */,
@@ -251,9 +257,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ContatosIP67/Pods-ContatosIP67-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/TPKeyboardAvoiding/TPKeyboardAvoiding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TPKeyboardAvoiding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -273,7 +290,9 @@
 				F4C92B6D1F795976009F2DE1 /* Contato.swift in Sources */,
 				F4810B421F7BD8F5001BA434 /* GerenciadorAcao.swift in Sources */,
 				F4810B4D1F7C3826001BA434 /* ContatosNoMapaViewController.swift in Sources */,
+				F4C5B7331F7E7B6F006182E9 /* CondicaoViewController.swift in Sources */,
 				F4C92B5A1F794914009F2DE1 /* ViewController.swift in Sources */,
+				F4E008A01F7EB712007EA81A /* Weather.swift in Sources */,
 				F4810B4B1F7C2DEA001BA434 /* CelulaNutellaTableViewCell.swift in Sources */,
 				F409043A1F7D6E2D008623F0 /* CoreDataUtil.swift in Sources */,
 				F4C92B771F7982FD009F2DE1 /* ContatoObjC.m in Sources */,
@@ -324,6 +343,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -374,6 +394,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

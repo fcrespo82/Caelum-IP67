@@ -69,6 +69,7 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -83,6 +84,7 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
             self.indexPath = nil
         }
         
+//        repository.buscaPorLetraInicial("f")
     }
     
     // MARK: - Table View Delegate
@@ -128,7 +130,7 @@ class ListaContatosTableViewController: UITableViewController, FormularioDelegat
             cell.customImageView?.image = contato.image
             
             cell.customImageView?.layer.borderWidth = 1
-            cell.customImageView?.layer.borderColor = UIColor.red.cgColor
+            cell.customImageView?.layer.borderColor = UIView.appearance().tintColor.cgColor
             
             DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
                 cell.customImageView?.layer.cornerRadius = (cell.customImageView?.bounds.height)! / 2

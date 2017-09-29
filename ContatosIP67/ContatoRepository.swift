@@ -115,4 +115,24 @@ class ContatoRepository: NSObject {
         contatos.remove(at: indexPath.row)
     }
     
+    func buscaPorLetraInicial(_ letra: String) {
+        
+        let request = NSFetchRequest<ContatoObjC>(entityName: "ContatoObjC")
+        
+        let predicate = NSPredicate(format: "nome BEGINSWITH[cd] %@", argumentArray: [letra])
+        
+        request.predicate = predicate
+        
+        do {
+            let results = try coreDataUtil.persistentContainer.viewContext.fetch(request)
+            for item in results {
+                print(item)
+            }
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    
 }

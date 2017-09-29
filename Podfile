@@ -1,3 +1,9 @@
+platform :ios, '10'
+
+use_frameworks!
+
 target 'ContatosIP67' do
-    pod 'TPKeyboardAvoiding', '~> 1.3'
+    pod 'TPKeyboardAvoiding'
+    pod 'AlamofireObjectMapper'
+    pod 'AlamofireImage'
 end

@@ -23,27 +23,30 @@ class GerenciadorAcao: NSObject {
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alertController.addAction(cancelar)
         
-        let ligar = UIAlertAction(title: "Ligar", style: .default) { (alertAction) in
+        let ligarAction = UIAlertAction(title: "Ligar", style: .default) { (alertAction) in
             self.ligar(controller)
         }
         
-        let verSite = UIAlertAction(title: "Visitar site", style: .default) { (alertAction) in
+        let verSiteAction = UIAlertAction(title: "Visitar site", style: .default) { (alertAction) in
             self.verSite()
         }
         
-        let verMapa = UIAlertAction(title: "Ver endereço", style: .default) { (alertAction) in
-            self.verEndereco()
-        }
+        let verMapaAction = UIAlertAction(title: "Ver endereço", style: .default) { (alertAction) in self.verEndereco() }
         
         if !contato.endereco.isEmpty {
-            alertController.addAction(verMapa)
+            alertController.addAction(verMapaAction)
         }
         if !contato.telefone.isEmpty {
-            alertController.addAction(ligar)
+            alertController.addAction(ligarAction)
         }
         if !contato.site.isEmpty {
-            alertController.addAction(verSite)
+            alertController.addAction(verSiteAction)
         }
+        
+        let verTempoAction = UIAlertAction(title: "Ver condição do tempo", style: .default) { (alertAction) in self.verClima(controller) }
+            
+        alertController.addAction(verTempoAction)
+            
         
         controller.present(alertController, animated: true) {
             
@@ -68,10 +71,21 @@ class GerenciadorAcao: NSObject {
             
             let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
             alert.addAction(cancelar)
-
+            
             controller.present(alert, animated: true)
-
+            
         }
+    }
+    
+    private func verClima(_ controller:UIViewController){
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "condicao") as! CondicaoViewController
+        
+        vc.coordenadas = self.contato.coordinate
+        
+        controller.navigationController?.pushViewController(vc, animated: true)
     }
     
     private func verSite() {

@@ -48,8 +48,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         // Do any additional setup after loading the view, typically from a nib.
         
         self.fotoImageView.layer.borderWidth = 2
-        self.fotoImageView.layer.borderColor = UIColor.red.cgColor
-        self.fotoImageView.layer.cornerRadius = 25.0
+        self.fotoImageView.layer.borderColor = UIView.appearance().tintColor.cgColor
         DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(1), execute: {
             self.fotoImageView.layer.cornerRadius = self.fotoImageView.bounds.height / 2
         })
